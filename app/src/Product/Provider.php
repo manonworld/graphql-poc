@@ -16,7 +16,7 @@ class Provider
     
     public function getProductsByCategory(int $id, int $skip, int $limit): array
     {
-        $productData = $this->repo->findByCats($id);
+        $productData = $this->repo->findByCats($id, $skip, $limit);
         
         $product = [];
         foreach($productData as $data) {
@@ -34,8 +34,6 @@ class Provider
     
     public function countProductsByCategory(int $id): int
     {
-        $productData = $this->repo->findByCats($id);
-
-        return count($productData);
+        return $this->repo->findByCatsCount($id);
     }
 }

@@ -22,13 +22,27 @@ class ProductsRepository extends ServiceEntityRepository
     /**
      * @return Products[] Returns an array of Products objects
      */
-    public function findByCats($id)
+    public function findByCats($id, $skip, $limit)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.category = :category')
             ->setParameter('category', $id)
+            ->setMaxResults($limit)
+            ->setFirstResult($skip)
             ->getQuery()
             ->getResult()
         ;
+    }
+
+    /**
+     * @return Products[] Returns an array of Products objects
+     */
+    public function findByCatsCount($id)
+    {
+        return count($this->createQueryBuilder('p')
+            ->andWhere('p.category = :category')
+            ->setParameter('category', $id)
+            ->getQuery()
+            ->getResult());
     }
 }
