@@ -1,0 +1,12 @@
+Products:
+    type: object
+    config:
+        fields:
+            id:
+                type: Int
+            name:
+                type: String
+            description:
+                type: String
+            price:
+                type: Float
