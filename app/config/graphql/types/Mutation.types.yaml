@@ -1,0 +1,10 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      createProducts:
+        type: "Products"
+        resolve: '@=mutation("create_products", [args])'
+        args:
+          input:
+            type: "ProductsInput"
