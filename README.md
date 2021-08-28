@@ -18,18 +18,21 @@ And then point your browser to ``` http://localhost:8000/?query={categories(id:1
 
 And to create a product for the category id 1, just run the following mutation inside ``` localhost:8000/graphiql ```
 
-``` mutation {
-  createProducts(input: {
-    name: "TestFromMutationName2",
-    description: "TestFromMutationDescription2",
-    price: 2.4,
-    category: 1
-  }) {
-    id,
-    name,
-    price
-  }
-} ```
+``` 
+    mutation {
+        createProducts(input: {
+            name: "TestFromMutationName2",
+            description: "TestFromMutationDescription2",
+            price: 2.4,
+            category: 1
+        }) {
+            id,
+            name,
+            price
+        }
+    } 
+    
+```
 
 
 ## Cleaning the application
