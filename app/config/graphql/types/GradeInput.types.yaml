@@ -1,0 +1,7 @@
+GradeInput:
+  type: input-object
+  config:
+    fields:
+      name:
+        type: String
+        description: "Grade Name"

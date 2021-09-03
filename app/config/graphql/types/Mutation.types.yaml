@@ -1,3 +1,10 @@
+MutationSuccess:
+    type: object
+    config:
+        fields:
+            content:
+                type: String!
+
 Mutation:
   type: object
   config:
@@ -8,3 +15,17 @@ Mutation:
         args:
           input:
             type: "ProductsInput"
+
+      NewAstronaut:
+        type: MutationSuccess
+        resolve: "@=mutation('NewAstronaut', [args['input']['pseudo'], args['input']['grade']])"
+        args:
+          input:
+            type: AstronautInput!
+
+      NewGrade:
+        type: MutationSuccess
+        resolve: "@=mutation('NewGrade', [args['input']['name']])"
+        args:
+          input:
+            type: GradeInput!
